@@ -1,5 +1,7 @@
 <?php
 include_once("./classes/clients.php");
+include_once("./classes/crud.php");
+include_once("./classes/dbconnect.php");
 
 echo "lalalala no connection yet";
 /*
