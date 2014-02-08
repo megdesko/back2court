@@ -28,8 +28,9 @@ public function create($post) {
 	$sql = "INSERT INTO $this->table  SET ";
 
 	foreach ($post as $column => $value) {
-		$sql .= $column . " = '" . $value . "'";	
+		$sql .= $column . " = '" . pg_escape_literal($value) . "'";	
 	}	
+	
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -37,14 +38,13 @@ public function create($post) {
 }
 
 public function get_one($id) {
+	if (! is_integer($id) or !$id ) { return; }
 
 	$sql = "SELECT * FROM $this->table WHERE ";
 	$sql .= $this->table_id  . "_id = '$id'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
-
-
 }
 
 public function get_all() {
@@ -57,7 +57,7 @@ public function get_all() {
 }
 
 public function update($data) {
-	if (!$data['client_id']) {return;}
+	if (! is_numeric($data['client_id']) or !$data['client_id']) {return;}
 
 	$sql = "SELECT * FROM $this->table";
 	$result = pg_query($this->dbconn, $sql);
@@ -68,7 +68,7 @@ public function update($data) {
 
 public function delete($id) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (!$id) {return;}
+	if (! is_integer($id) or !$id ) { return; }
 	
 	$sql = "DELETE FROM $this->table WHERE ";
 	$sql .= $this->table_id  . "_id = '$id'";
