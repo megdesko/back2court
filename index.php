@@ -4,7 +4,10 @@
 # Heroku
 # the return value is a string that will work with pg_connect
 function pg_connection_string() {
-  // we will fill this out next
+	return "dbname=d9g8fdnb8rv1ci host=ec2-54-197-241-95.compute-1.amazonaws.com port=5432
+user=plszpihaesglmk password=oqrfEGFmeUP9WHMg6sX8rU6T1q sslmode=require";
+
+
 }
  
 # Establish db connection
