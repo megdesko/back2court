@@ -3,7 +3,7 @@ include("./classes/clients.php");
 
 echo "lalalala no connection yet";
 
-$connection = new dbconnect();
+$connection = new clients();
 
 if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
