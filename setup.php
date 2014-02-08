@@ -1,11 +1,10 @@
 <?php
-include_once("./classes/clients.php");
-include_once("./classes/crud.php");
+//include_once("./classes/clients.php");
+//include_once("./classes/crud.php");
 include_once("./classes/dbconnect.php");
 
 echo "lalalala no connection yet";
-/*
-$connection = new clients();
+$connection = new dbconnect();
 /*
 if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
