@@ -29,11 +29,13 @@ $data['last_name'] = "Desko";
 $data['phone_1'] = "650-714-4716";
 
 var_dump($data);
-/*
-$new_result = $connection->create($data);
+$new_result = $connection->create($data, 'clients');
 if ($new_result) echo "there is something in the db!";
 else "insert failed";
-*/
+
+$sql = "SELECT * FROM clients";
+$result = pg_query($connection->dbconn, $sql);
+
 echo "<hr>";
 echo "I am finished with my setup routine.";
 ?>
