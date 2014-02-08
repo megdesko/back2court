@@ -1,10 +1,12 @@
 <?php
 include("./classes/clients.php");
+include("./classes/crud.php");
+include("./classes/dbconnect.php");
 
 echo "lalalala no connection yet";
 
 $connection = new clients();
-
+/*
 if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
@@ -20,7 +22,7 @@ $result = pg_query($connection->dbconn, $sql);
 
 if ($result) echo "I have a client table<br><br>";
 else echo "client table failed";
-
+*/
 echo "<hr>";
 
 $data['first_name'] = "Meg";
