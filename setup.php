@@ -1,10 +1,11 @@
 <?php
-include(./classes/dbconnect.php);
+include("./classes/dbconnect.php");
+
+echo "lalalala no connection yet";
 
 $connection = new dbconnect();
 
-$db = $connection->db_connect();
-if ($db) echo "I have a connection!";
+if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
 echo "Hello from the setup page!"
