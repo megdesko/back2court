@@ -7,7 +7,6 @@
  */
 
 
-require_once("./dbconnect.php");
 require_once("./crud.php");
 
 class clients extends crud{
