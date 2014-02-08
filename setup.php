@@ -1,7 +1,7 @@
 <?php
-include("./classes/clients.php");
-include("./classes/crud.php");
-include("./classes/dbconnect.php");
+require_once("./classes/clients.php");
+require_once("./classes/crud.php");
+require_once("./classes/dbconnect.php");
 
 echo "lalalala no connection yet";
 
