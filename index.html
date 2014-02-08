@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <title>Welcome to Back2Court</title>
@@ -9,7 +8,8 @@ This is our app.  Woo!
 
 
 <?php
-	foreach array("fruit", "kitten","dog") as $something {
+	$stuff = array("cat","dog","rabbit");
+	foreach ($stuff as $something) {
 		echo "<b>" . $something . "</b><br>";
 	}
 ?>
