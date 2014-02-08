@@ -9,7 +9,7 @@ if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
 
-$sql= "CREATE TABLE clients (
+$sql= "CREATE TABLE IF NOT EXISTS clients (
 	client_id   integer,
 	first_name  varchar(50),
 	last_name   varchar(100),
