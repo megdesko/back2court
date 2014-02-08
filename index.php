@@ -8,7 +8,7 @@ sslmode=require options='--client_encoding=UTF8'") or die('Could not connect: '
 . pg_last_error());
 
 
-
+if ($dbconn) echo "\n I have a connection!  Whooppeee!";
 
 # This function reads your DATABASE_URL configuration automatically set by
 # Heroku
