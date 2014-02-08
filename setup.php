@@ -1,5 +1,5 @@
 <?php
-include("./classes/dbconnect.php");
+include("./classes/clients.php");
 
 echo "lalalala no connection yet";
 
@@ -20,6 +20,18 @@ $result = pg_query($connection->dbconn, $sql);
 
 if ($result) echo "I have a client table<br><br>";
 else echo "client table failed";
+
+echo "<hr>";
+
+$data['first_name'] = "Meg";
+$data['last_name'] = "Desko";
+$data['phone_1'] = "650-714-4716";
+
+var_dump($data);
+
+$new_result = $connection->create($data);
+if ($new_result) echo "there is something in the db!";
+else "insert failed";
 
 echo "<hr>";
 echo "I am finished with my setup routine.";

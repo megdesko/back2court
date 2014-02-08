@@ -30,7 +30,7 @@ public function create($post) {
 	foreach ($post as $column => $value) {
 		$sql .= $column . " = '" . pg_escape_literal($value) . "'";	
 	}	
-	
+	var_dump($sql);	
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
