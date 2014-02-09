@@ -18,7 +18,7 @@ $sql= "CREATE TABLE IF NOT EXISTS clients (
 	client_id   serial primary key,
 	first_name  varchar(100),
 	last_name   varchar(100),
-	phone_1     varchar(15),
+	phone       varchar(15),
 	case_number varchar(50)
 );";
 
@@ -55,7 +55,8 @@ $sql= "CREATE TABLE IF NOT EXISTS users (
 	phone_number		varchar(15),
 	email_address		varchar(100),
 	first_name			varchar(100),
-	last_name			varchar(100)
+	last_name			varchar(100),
+	pw					varchar(100)
 );";
 
 $result = pg_query($connection->dbconn, $sql); 
@@ -115,6 +116,8 @@ $sql= "CREATE TABLE IF NOT EXISTS jurisdictions (
 $result = pg_query($connection->dbconn, $sql); 
 if ($result) echo "Executed $sql<br><br>";
 echo "<hr>";
+
+// commented out because this is just demo setup stuff
 /*
 
 $sql= "CREATE TABLE IF NOT EXISTS demo_text (
