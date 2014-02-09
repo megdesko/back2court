@@ -26,29 +26,51 @@
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
+// Read all existing numbers
+function getNums() {
+  $.ajax({
+    url: '/routes.php',
+    type: 'POST',
+    data: { method: 'get_all_demo_texts' }
+  }).success(function(data) {
+    // Handle list
+  });
+}
+// Remove a number
 function removeNum(id,btn) {
-  // Call delete function for id
+  $.ajax({
+    url: '/routes.php',
+    type: 'POST',
+    data: { method: 'delete_demo_text', demo_text_id: id }
+  });
   $(btn).parent().parent().remove();
   return false;
 }
+// Add a new number
 function addNum(btn) {
   var name = $('input[name="demo_name"]').val(),
       phone = $('input[name="demo_phone"]').val(),
-      row = $('<tr></tr'),
-      id = 0;
+      row = $('<tr></tr');
   if (!name || phone.replace(/\D/g,'').length != 10) {
     alert('Please enter a name and 10-digit telephone number');
     return false
   }
-  // Call add function for information, get id value
-  row.append($('<td></td>').text(name));
-  row.append($('<td></td>').addClass('phone phone'+id).text(phone));
-  row.append($('<td></td>').append($('<button></button>').attr('onclick','return removeNum('+id+',this)').text('Remove')));
-  $(btn).parent().parent().before(row);
-  $('input[name="demo_name"]').val('');
-  $('input[name="demo_phone"]').val('');
+  $.ajax({
+    url: '/routes.php',
+    type: 'POST',
+    data: { method: 'create_demo_text', demo_name: name, phone: phone }
+  }).success(function(data) {
+    var id = data['id'];
+    row.append($('<td></td>').text(name));
+    row.append($('<td></td>').addClass('phone phone'+id).text(phone));
+    row.append($('<td></td>').append($('<button></button>').attr('onclick','return removeNum('+id+',this)').text('Remove')));
+    $(btn).parent().parent().before(row);
+    $('input[name="demo_name"]').val('');
+    $('input[name="demo_phone"]').val('');
+  });
   return false;
 }
+// Send an SMS to all listed numbers
 function sendMessage() {
   var nums = $('.phone').toArray().map(function(p) {return $(p).text().replace(/\D/g,'')}).join(','),
       msg = $('textarea[name="message"]').val();
