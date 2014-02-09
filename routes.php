@@ -19,7 +19,9 @@ function do_call($data, $function) {
 
 $all_info = json_decode($_POST);
 //$all_info = $_POST;
-
+if (!$_POST) {
+	$all_info['method'] = 'get_all_clients'];
+}
 $function = $all_info['method'];
 unset($all_info['method']);
 $data = $all_info;
@@ -31,9 +33,10 @@ if (strpos($function, 'get') !== false && $result) {
 	}
 	$result = true;
 }
+$result = array('result' => $result, 'data'=>$data);
 
-
-
+var_dump($result);
+var_dump(json_encode($result));
 return json_encode($result);
 
 
