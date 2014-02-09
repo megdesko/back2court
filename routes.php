@@ -13,13 +13,14 @@ function do_call($data, $function) {
 
 }
 
-$_POST['demo_name'] = 'awesome tester';
-$_POST['method'] = 'create_demo_text';
-$_POST['phone'] = '5551212';
+//$_POST['demo_name'] = 'awesome tester';
+//$_POST['method'] = 'create_demo_text';
+//$_POST['phone'] = '5551212';
 //$all_info = json_decode($_POST);
+
 $all_info = $_POST;
 if (!$_POST) {
-	$all_info['method'] = 'get_all_clients';
+	$all_info['method'] = 'get_all_demo_texts';
 }
 $function = $all_info['method'];
 unset($all_info['method']);
