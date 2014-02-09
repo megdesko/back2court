@@ -8,7 +8,7 @@ $connection = new dbconnect();
 if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
-$sql= "CREATE TABLE IF NOT EXISTSclients (
+$sql= "CREATE TABLE IF NOT EXISTS clients (
 	client_id   serial primary key,
 	first_name  varchar(50),
 	last_name   varchar(100),
@@ -24,6 +24,9 @@ echo "<hr>";
 $data['first_name'] = "Meg";
 $data['last_name'] = "Desko";
 $data['phone_1'] = "650-714-4716";
+
+$result = $connection->create($data, $table);
+var_dump($result);
 
 var_dump($data);
 
