@@ -13,7 +13,9 @@ function do_call($data, $function) {
 
 }
 
-
+$_POST['demo_name'] = 'awesome tester';
+$_POST['method'] = 'create_demo_text';
+$_POST['phone'] = '5551212';
 //$all_info = json_decode($_POST);
 $all_info = $_POST;
 if (!$_POST) {
@@ -32,8 +34,8 @@ if (strpos($function, 'get') !== false && $result) {
 }
 $result = array('result' => $result, 'data'=>$data);
 
-//var_dump($result);
-//var_dump(json_encode($result));
+var_dump($result);
+var_dump(json_encode($result));
 return json_encode($result);
 
 
