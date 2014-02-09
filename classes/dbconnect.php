@@ -26,6 +26,7 @@ public function db_connect() {
  */ 
 
 public function create_client($data) {
+	echo "inside create_client";
 	$sql = "INSERT INTO clients (first_name, last_name, phone) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."')";
 
