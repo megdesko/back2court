@@ -28,9 +28,11 @@ public function db_connect() {
 public function create($post, $table) {
 	
 	$sql = "INSERT INTO $table  SET ";
-
+	
+	$comma = "";
 	foreach ($post as $column => $value) {
-		$sql .= $column . " = '" . pg_escape_string($value) . "'";	
+		$sql .= $comma . $column . " = '" . pg_escape_string($value) . "'";	
+		$comma = ",";
 	}	
 	var_dump($sql);	
 	$result = pg_query($this->dbconn, $sql);
