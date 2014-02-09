@@ -32,8 +32,9 @@ if ($new_result) echo "there is something in the db!";
 else "insert failed";
 
 $sql = "SELECT * FROM clients";
-$result = pg_fetch_assoc($connection->dbconn, $sql);
-
+$result = pg_query($connection->dbconn, $sql);
+$rows = pg_fetch_assoc($result);
+var_dump($rows);
 echo "<hr>";
 
 var_dump($result);
