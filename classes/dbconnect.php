@@ -41,7 +41,8 @@ echo "inside create";
 	$the_sql .= $sql3 . ")";
 	var_dump($the_sql);	
 	$result = pg_query($this->dbconn, $sql);
-
+	var_dump($result);
+	echo "about to return from create fn";
 	return ($result);
 	
 }
