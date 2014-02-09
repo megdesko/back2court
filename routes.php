@@ -13,9 +13,9 @@ function do_call($data, $function) {
 
 }
 
-$_POST['demo_name'] = 'bestest tester';
-$_POST['method'] = 'create_demo_text';
-$_POST['phone'] = '5551212';
+//$_POST['demo_name'] = 'bestest tester';
+//$_POST['method'] = 'create_demo_text';
+//$_POST['phone'] = '5551212';
 //$all_info = json_decode($_POST);
 
 $all_info = $_POST;
