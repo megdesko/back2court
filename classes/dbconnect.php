@@ -28,7 +28,7 @@ public function db_connect() {
 public function create_client($data) {
 echo "inside create";	
 
-
+var_dump($data);
 	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
 
@@ -37,23 +37,6 @@ echo "inside create";
 if ($result) echo "there is something in the db!";
 else "insert failed";
 
-
-
-	$sql = "INSERT INTO $table ";	
-	$comma = "";
-	$sql2 = "(";
-	$sql3 = "(";
-	foreach ($post as $column => $value) {
-		$sql2 .= $comma . $column;
-		$sql3 .= $comma . "'$value'";	
-		$comma = ",";
-	}
-
-	$the_sql = $sql . $sql2 . ") VALUES ";
-	$the_sql .= $sql3 . ")";
-	var_dump($the_sql);	
-	$result = pg_query($this->dbconn, $sql);
-	var_dump($result);
 	echo "about to return from create fn";
 	return ($result);
 	
