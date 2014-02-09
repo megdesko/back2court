@@ -18,12 +18,11 @@ if ($result) echo "I have a client table<br><br>";
 else echo "client table failed";
 echo "<hr>";
 */
-$data['first_name'] = "Awesome";
-$data['last_name'] = "Sauce";
-$data['phone_1'] = "650-714-4716";
+$data['demo_name'] = "Awesome";
+$data['phone'] = "650-714-4716";
 
 $table = "clients";
-$result = $connection->create_client($data);
+$result = $connection->create_demo_text($data);
 var_dump($result);
 /*
 var_dump($data);
@@ -44,6 +43,7 @@ $data['phone_1'] = "650-714-4716";
 $data['client_id'] = 1;
 $result = $connection->update_client($data);
 $result = $connection->get_client(1);
+$result = $connection->get_all_demo_texts();
 
 while ($row =  pg_fetch_assoc($result)) {
 var_dump($row);
