@@ -42,6 +42,11 @@ else "insert failed";
 $sql = "SELECT * FROM clients";
 $result = pg_query($connection->dbconn, $sql);
 */
+$data['first_name'] = "Changed";
+$data['last_name'] = "Sauce";
+$data['phone_1'] = "650-714-4716";
+$data['client_id'] = 1;
+$result = $connection->update_client($data);
 $result = $connection->get_client(1);
 
 while ($row =  pg_fetch_assoc($result)) {

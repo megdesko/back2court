@@ -53,31 +53,29 @@ public function get_all_clients() {
 
 }
 
-public function update($data) {
+public function update_client($data) {
 	if (! is_numeric($data['client_id']) or !$data['client_id']) {return;}
 
-	$sql = "SELECT * FROM $this->table";
-	$result = pg_query($this->dbconn, $sql);
+	$sql = "UPDATE clients SET (first_name, last_name, phone_1) =
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')
+	WHERE client_id = '".$data['client_id']."'";
+
+	$result = pg_query($this->dbconn, $sql); 
 
 	return ($result);
 
 }
 
-public function delete($id) {
+public function delete_client($id) {
 	// if we don't have an id here, abort so we don't kill the db
 	if (! is_integer($id) or !$id ) { return; }
 	
-	$sql = "DELETE FROM $this->table WHERE ";
-	$sql .= $this->table_id  . "_id = '$id'";
+	$sql = "DELETE FROM clients WHERE client_id  = '$id'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
 
 }
-
-}
-
-?>
 
 }
 ?>
