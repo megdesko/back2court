@@ -152,7 +152,7 @@ public function create_demo_text($data) {
 	('".$data['demo_name']."', '".$data['phone']."') ";
 
 	$result = pg_query($this->dbconn, $sql); 
-	if ($result) return bool(true);
+	if ($result) return TRUE;
 	return ($result);
 	
 }
