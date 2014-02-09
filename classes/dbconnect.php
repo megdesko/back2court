@@ -20,20 +20,32 @@ public function db_connect() {
 }
 
 /**
- * @abstract create new record in the table
+ * @abstract create new record in the client table
  * @param array $post // contains the data that we need to insert
  *
  */ 
 
-public function create($post, $table) {
+public function create_client($data) {
 echo "inside create";	
+
+
+	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
+
+	$result = pg_query($connection->dbconn, $sql); 
+
+if ($result) echo "there is something in the db!";
+else "insert failed";
+
+
+
 	$sql = "INSERT INTO $table ";	
 	$comma = "";
 	$sql2 = "(";
 	$sql3 = "(";
 	foreach ($post as $column => $value) {
 		$sql2 .= $comma . $column;
-		$sql3 .= $comma . "'". $value . "'";	
+		$sql3 .= $comma . "'$value'";	
 		$comma = ",";
 	}
 

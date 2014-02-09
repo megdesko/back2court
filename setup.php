@@ -8,6 +8,7 @@ $connection = new dbconnect();
 if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
+/*
 $sql= "CREATE TABLE IF NOT EXISTS clients (
 	client_id   serial primary key,
 	first_name  varchar(50),
@@ -20,15 +21,15 @@ $result = pg_query($connection->dbconn, $sql);
 if ($result) echo "I have a client table<br><br>";
 else echo "client table failed";
 echo "<hr>";
-
-$data['first_name'] = "Meg";
-$data['last_name'] = "Desko";
+*/
+$data['first_name'] = "Jim";
+$data['last_name'] = "Pugh";
 $data['phone_1'] = "650-714-4716";
 
 $table = "clients";
-$result = $connection->create($data, $table);
+$result = $connection->create_client($data);
 var_dump($result);
-
+/*
 var_dump($data);
 
 $sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
@@ -38,7 +39,7 @@ $result = pg_query($connection->dbconn, $sql);
 
 if ($result) echo "there is something in the db!";
 else "insert failed";
-
+*/
 $sql = "SELECT * FROM clients";
 $result = pg_query($connection->dbconn, $sql);
 $rows = pg_fetch_assoc($result);
