@@ -42,8 +42,9 @@ else "insert failed";
 */
 $sql = "SELECT * FROM clients";
 $result = pg_query($connection->dbconn, $sql);
-$rows = pg_fetch_assoc($result);
+while ($row =  pg_fetch_assoc($result)) {
 var_dump($rows);
+}
 echo "<hr>";
 
 
