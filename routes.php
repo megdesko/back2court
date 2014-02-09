@@ -35,8 +35,8 @@ if (strpos($function, 'get') !== false && $result) {
 }
 $result = array('result' => $result, 'data'=>$data);
 
-var_dump($result);
-var_dump(json_encode($result));
+//var_dump($result);
+//var_dump(json_encode($result));
 return json_encode($result);
 
 
