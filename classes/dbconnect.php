@@ -77,6 +77,68 @@ public function delete_client($id) {
 
 }
 
+////////////////////////////
+// handle test data
+////////////////////////////////
+
+/**
+ * @abstract create new record in the test_data table
+ * @param array $data // contains the data that we need to insert
+ *
+ */ 
+
+public function create_demo_text($data) {
+	$sql = "INSERT INTO demo_text (demo_name, phone) VALUES
+	('".$data['demo_name']."', '".$data['phone']."')";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+	
+}
+
+public function get_demo_text($id) {
+	if (! is_integer($id) or !$id ) { return; }
+
+	$sql = "SELECT * FROM demo_text where demo_text_id = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+}
+
+public function get_all_demo_texts() {
+
+	$sql = "SELECT * FROM demo_text";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+public function update_demo_text($data) {
+	if (! is_numeric($data['demo_text_id']) or !$data['demo_text_id']) {return;}
+
+	$sql = "UPDATE demo_text` SET (demo_name,phone) =
+	('".$data['demo_name']."', '".$data['phone']."')
+	WHERE demo_text_id = '".$data['demo_text_id']."'";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+
+}
+
+public function delete_client($id) {
+	// if we don't have an id here, abort so we don't kill the db
+	if (! is_integer($id) or !$id ) { return; }
+	
+	$sql = "DELETE FROM demo_text WHERE demo_text_id  = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
 
 
 ///////////////////////////////////////////
