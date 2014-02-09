@@ -42,6 +42,13 @@ public function get_client($data) {
 
 	return ($result);
 }
+public function get_last_client() {
+
+	$sql = "SELECT * FROM clients ORDER BY client_id DESC LIMIT 1";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+}
 
 public function get_all_clients() {
 
