@@ -43,7 +43,7 @@ $result = array('result' => $result, 'data'=>$data);
 
 //var_dump($result);
 //var_dump(json_encode($result));
-return json_encode($result);
+echo json_encode($result);
 
 
 
