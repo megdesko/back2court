@@ -8,7 +8,8 @@ $connection = new dbconnect();
 if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
-
+$sql = "DROP TABLE clients";
+$result = pg_query($connection->dbconn, $sql); 
 $sql= "CREATE TABLE clients (
 	client_id   serial primary key,
 	first_name  varchar(50),
