@@ -83,8 +83,8 @@ public function delete_client($data) {
  */ 
 
 public function create_user($data) {
-	$sql = "INSERT INTO users (first_name, last_name, phone) VALUES
-	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."')";
+	$sql = "INSERT INTO users (first_name, last_name, phone_number) VALUES
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_number']."')";
 
 	$result = pg_query($this->dbconn, $sql); 
 
@@ -272,7 +272,17 @@ public function delete_appointment($data) {
 
 }
 
-public function get_all_client_appointments() {
+public function get_all_user_appointments($data) {
+	if (!$data['user_id']) return false;
+	
+	$sql = "SELECT * FROM clients LEFT JOIN appointments ON clients.client_id =
+appointments.client_id WHERE clients.user_id = '".$data['user_id']."'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+	
+	
 
 }
 
