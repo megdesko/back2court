@@ -272,6 +272,10 @@ public function delete_appointment($data) {
 
 }
 
+public function get_all_client_appointments() {
+
+}
+
 /////////////////////////////////////////////
 //user
 /////////////////////////////////////////////

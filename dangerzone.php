@@ -16,6 +16,7 @@ echo "<hr>";
 
 $sql= "CREATE TABLE IF NOT EXISTS clients (
 	client_id   serial primary key,
+	user_id     integer,
 	first_name  varchar(100),
 	last_name   varchar(100),
 	phone       varchar(15),
