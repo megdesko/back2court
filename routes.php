@@ -13,9 +13,9 @@ function do_call($data, $function) {
 
 }
 
-//$_POST['demo_name'] = 'awesome tester';
-//$_POST['method'] = 'create_demo_text';
-//$_POST['phone'] = '5551212';
+$_POST['demo_name'] = 'bestest tester';
+$_POST['method'] = 'create_demo_text';
+$_POST['phone'] = '5551212';
 //$all_info = json_decode($_POST);
 
 $all_info = $_POST;
@@ -27,12 +27,18 @@ unset($all_info['method']);
 $data = $all_info;
 $result = do_call($data, $function);
 
+if (strpos($function, 'create') !== false && $result) {
+	$function = str_replace('create', 'get_last', $function);
+	$result = do_call(array(), $function);
+}
+
 if (strpos($function, 'get') !== false && $result) {
 	while($row = pg_fetch_assoc($result)) {
  		$data[] = $row;		
 	}
 	$result = true;
 }
+
 $result = array('result' => $result, 'data'=>$data);
 
 var_dump($result);
