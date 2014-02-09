@@ -3,11 +3,7 @@
 //include_once("./classes/crud.php");
 include_once("./classes/dbconnect.php");
 
-echo "lalalala no connection yet";
 $connection = new dbconnect();
-if ($connection->dbconn) echo "I have a connection!";
-else echo "I am sad";
-echo "<br><br>";
 /*
 $sql= "CREATE TABLE IF NOT EXISTS clients (
 	client_id   serial primary key,
