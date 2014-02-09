@@ -29,8 +29,8 @@ public function create($post, $table) {
 	
 	$sql = "INSERT INTO $table ";	
 	$comma = "";
-	$sql2 = "("
-	$sql3 = "("
+	$sql2 = "(";
+	$sql3 = "(";
 	foreach ($post as $column => $value) {
 		$sql2 .= $comma . "'$column'";
 		$sql3 .= $comma . "'". pg_escape_string($value) . "'";	
