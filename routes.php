@@ -19,14 +19,14 @@ function do_call($data, $function) {
 //$all_info = json_decode($_POST);
 
 $all_info = $_POST;
-if (!$_POST) {
-	$all_info['method'] = 'get_all_demo_texts';
-}
+
+print_r($_POST);
 $function = $all_info['method'];
 unset($all_info['method']);
-$data = $all_info;
-$result = do_call($data, $function);
-unset($data);
+$result = do_call($all_info, $function);
+
+echo __line__ . __file__;
+echo $result;
 if (strpos($function, 'create') !== false && $result) {
 	$function = str_replace('create', 'get_last', $function);
 	$result = do_call(array(), $function);
