@@ -18,8 +18,10 @@ if ($result) echo "I have a client table<br><br>";
 else echo "client table failed";
 echo "<hr>";
 */
-$data['demo_name'] = "Awesome";
-$data['phone'] = "650-714-4716";
+$data['first_name'] = "John";
+$data['last_name'] = "Smith";
+$data['phone'] = "5551212345";
+$data['user_id'] = 1;
 
 $table = "clients";
 $result = $connection->create_demo_text($data);
