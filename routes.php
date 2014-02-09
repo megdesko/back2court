@@ -7,11 +7,8 @@ include_once("./classes/dbconnect.php");
 
 function do_call($data, $function) {
 	$dbstuff = new dbconnect();
-	var_dump($data);
-	var_dump($function);
 	
 	$result = $dbstuff->$function($data);
-	var_dump($result);
 	return $result;
 
 }
