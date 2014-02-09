@@ -33,7 +33,7 @@ function getNums() {
   }).success(function(data) {
     var nums = $.parseJSON(data).data;
     for (var i = 0; i < nums.length; i++) {
-      var row = $('<tr></tr');
+      var row = $('<tr></tr>');
       row.append($('<td></td>').text(nums[i].demo_name));
       row.append($('<td></td>').addClass('phone phone'+nums[i].demo_text_id).text(nums[i].phone));
       row.append($('<td></td>').append($('<button></button>').attr('onclick','return removeNum('+nums[i].demo_text_id+',this)').text('Remove')));
@@ -55,7 +55,7 @@ function removeNum(id,btn) {
 function addNum(btn) {
   var name = $('input[name="demo_name"]').val(),
       phone = $('input[name="demo_phone"]').val(),
-      row = $('<tr></tr');
+      row = $('<tr></tr>');
   if (!name || phone.replace(/\D/g,'').length != 10) {
     alert('Please enter a name and 10-digit telephone number');
     return false
