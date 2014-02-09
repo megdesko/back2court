@@ -20,7 +20,9 @@ $_POST['first_name'] = "tester";
 $_POST['last_name'] = "test_again";
 $_POST['method'] = "create_client";
 
-$all_info = json_decode($_POST);
+//$all_info = json_decode($_POST);
+$all_info = $_POST;
+
 $function = $all_info['method'];
 unset($all_info['method']);
 $data = $all_info;
