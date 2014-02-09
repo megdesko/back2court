@@ -27,14 +27,20 @@ public function db_connect() {
 
 public function create($post, $table) {
 	
-	$sql = "INSERT INTO $table  SET ";
-	
+	$sql = "INSERT INTO $table ";	
 	$comma = "";
+	$sql2 = "("
+	$sql3 = "("
 	foreach ($post as $column => $value) {
-		$sql .= $comma . $column . " = '" . pg_escape_string($value) . "'";	
+		$sql2 .= $comma . "'$column'";
+		$sql3 .= $comma . "'". pg_escape_string($value) . "'";	
 		$comma = ",";
-	}	
-	var_dump($sql);	
+	}
+
+	$the_sql = $sql . $sql2 . ") VALUES ";
+	$the_sql .= $sql3 . ")";
+	$the_sql .= " RETURNING ". $table."_id";
+	var_dump($the_sql);	
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
