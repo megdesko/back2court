@@ -34,10 +34,10 @@ public function create_client($data) {
 	
 }
 
-public function get_client($id) {
-	if (! is_integer($id) or !$id ) { return; }
+public function get_client($data) {
+	if (! is_integer($data['client_id']) or !$data['client_id'] ) { return; }
 
-	$sql = "SELECT * FROM clients where client_id = '$id'";
+	$sql = "SELECT * FROM clients where client_id = '$data['client_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -65,11 +65,11 @@ public function update_client($data) {
 
 }
 
-public function delete_client($id) {
+public function delete_client($data) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($id) or !$id ) { return; }
+	if (! is_integer($data['client_id']) or !$data['client_id'] ) { return; }
 	
-	$sql = "DELETE FROM clients WHERE client_id  = '$id'";
+	$sql = "DELETE FROM clients WHERE client_id  = '$data['client_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -92,10 +92,10 @@ public function create_user($data) {
 	
 }
 
-public function get_user($id) {
-	if (! is_integer($id) or !$id ) { return; }
+public function get_user($data) {
+	if (! is_integer($data['user_id']) or !$data['user_id'] ) { return; }
 
-	$sql = "SELECT * FROM users where user_id = '$id'";
+	$sql = "SELECT * FROM users where user_id = '$data['user_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -123,11 +123,11 @@ public function update_user($data) {
 
 }
 
-public function delete_user($id) {
+public function delete_user($data) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($id) or !$id ) { return; }
+	if (! is_integer($data['user_id']) or !$data['user_id'] ) { return; }
 	
-	$sql = "DELETE FROM users WHERE user_id  = '$id'";
+	$sql = "DELETE FROM users WHERE user_id  = '$data['user_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -154,10 +154,10 @@ public function create_demo_text($data) {
 	
 }
 
-public function get_demo_text($id) {
-	if (! is_integer($id) or !$id ) { return; }
+public function get_demo_text($data) {
+	if (! is_integer($data['demo_text_id']) or !$data['demo_text_id'] ) { return; }
 
-	$sql = "SELECT * FROM demo_text where demo_text_id = '$id'";
+	$sql = "SELECT * FROM demo_text where demo_text_id = '$data['demo_text_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -185,11 +185,11 @@ public function update_demo_text($data) {
 
 }
 
-public function delete_demo_text($id) {
+public function delete_demo_text($data) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($id) or !$id ) { return; }
+	if (! is_integer($data['demo_text_id']) or !$data['demo_text_id'] ) { return; }
 	
-	$sql = "DELETE FROM demo_text WHERE demo_text_id  = '$id'";
+	$sql = "DELETE FROM demo_text WHERE demo_text_id  = '$data['demo_text_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -219,10 +219,11 @@ appointment_time, location) VALUES
 	
 }
 
-public function get_appointment($id) {
-	if (! is_integer($id) or !$id ) { return; }
+public function get_appointment($data) {
+	if (! is_integer($data['appointment_id']) or !$data['appointment_id'] ) { return; }
 
-	$sql = "SELECT * FROM appointments where appointment_id = '$id'";
+	$sql = "SELECT * FROM appointments where appointment_id =
+'$data['appointment_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -250,11 +251,12 @@ public function update_appointment($data) {
 
 }
 
-public function delete_appointment($id) {
+public function delete_appointment($data['appointment_id']) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($id) or !$id ) { return; }
+	if (! is_integer($data['appointment_id']) or !$data['appointment_id'] ) { return; }
 	
-	$sql = "DELETE FROM appointments WHERE appointment_id  = '$id'";
+	$sql = "DELETE FROM appointments WHERE appointment_id  =
+'$data['appointment_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -280,10 +282,11 @@ public function create_user_client($data) {
 	
 }
 
-public function get_user_client($id) {
-	if (! is_integer($id) or !$id ) { return; }
+public function get_user_client($data) {
+	if (! is_integer($data['user_client_id']) or !$data['user_client_id'] ) { return; }
 
-	$sql = "SELECT * FROM user_clients where user_client_id = '$id'";
+	$sql = "SELECT * FROM user_clients where user_client_id =
+'$data['user_client_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -311,11 +314,12 @@ public function update_user_client($data) {
 
 }
 
-public function delete_user_client($id) {
+public function delete_user_client($data['user_client_id']) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($id) or !$id ) { return; }
+	if (! is_integer($data['user_client_id']) or !$data['user_client_id'] ) { return; }
 	
-	$sql = "DELETE FROM user_clients WHERE user_client_id  = '$id'";
+	$sql = "DELETE FROM user_clients WHERE user_client_id  =
+'$data['user_client_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -335,7 +339,6 @@ public function get_user_user_clients($user_id) {
  * @param array $data // contains the data that we need to insert
  *
  */ 
-/*
 public function create_jurisdiction($data) {
 	$sql = "INSERT INTO jurisdictions (first_name, last_name, phone) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."')";
@@ -346,10 +349,11 @@ public function create_jurisdiction($data) {
 	
 }
 
-public function get_jurisdiction($id) {
-	if (! is_integer($id) or !$id ) { return; }
+public function get_jurisdiction($data) {
+	if (! is_integer($data['jurisdiction_id']) or !$data['jurisdiction_id'] ) { return; }
 
-	$sql = "SELECT * FROM jurisdictions where jurisdiction_id = '$id'";
+	$sql = "SELECT * FROM jurisdictions where jurisdiction_id =
+'$data['jurisdiction_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -377,11 +381,12 @@ public function update_jurisdiction($data) {
 
 }
 
-public function delete_jurisdiction($id) {
+public function delete_jurisdiction($data) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($id) or !$id ) { return; }
+	if (! is_integer($data['jurisdiction_id']) or !$data['jurisdiction_id'] ) { return; }
 	
-	$sql = "DELETE FROM jurisdictions WHERE jurisdiction_id  = '$id'";
+	$sql = "DELETE FROM jurisdictions WHERE jurisdiction_id  =
+'$data['jurisdiction_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -407,10 +412,10 @@ public function create_venue($data) {
 	
 }
 
-public function get_venue($id) {
-	if (! is_integer($id) or !$id ) { return; }
+public function get_venue($data) {
+	if (! is_integer($data['venue_id']) or !$data['venue_id'] ) { return; }
 
-	$sql = "SELECT * FROM venues where venue_id = '$id'";
+	$sql = "SELECT * FROM venues where venue_id = '$data['venue_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
@@ -438,11 +443,11 @@ public function update_venue($data) {
 
 }
 
-public function delete_venue($id) {
+public function delete_venue($data['venue_id']) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($id) or !$id ) { return; }
+	if (! is_integer($data['venue_id']) or !$data['venue_id'] ) { return; }
 	
-	$sql = "DELETE FROM venues WHERE venue_id  = '$id'";
+	$sql = "DELETE FROM venues WHERE venue_id  = '$data['venue_id']'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
