@@ -32,7 +32,7 @@ echo "inside create";
 	$sql2 = "(";
 	$sql3 = "(";
 	foreach ($post as $column => $value) {
-		$sql2 .= $comma . "'$column'";
+		$sql2 .= $comma . $column;
 		$sql3 .= $comma . "'". $value . "'";	
 		$comma = ",";
 	}
