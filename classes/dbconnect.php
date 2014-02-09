@@ -26,13 +26,10 @@ public function db_connect() {
  */ 
 
 public function create_client($data) {
-	echo "inside create_client";
 	$sql = "INSERT INTO clients (first_name, last_name, phone) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."')";
 
 	$result = pg_query($this->dbconn, $sql); 
-	$the_data = pg_fetch_assoc($result);
-	var_dump($the_data);
 	return ($result);
 	
 }
