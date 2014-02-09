@@ -9,7 +9,7 @@ if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
 
-$sql= "CREATE TABLE IF NOT EXISTS clients (
+$sql= "CREATE TABLE clients (
 	client_id   serial primary key,
 	first_name  varchar(50),
 	last_name   varchar(100),
@@ -28,8 +28,12 @@ $data['phone_1'] = "650-714-4716";
 
 var_dump($data);
 
-$new_result = $connection->create($data, 'clients');
-if ($new_result) echo "there is something in the db!";
+$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
+('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
+
+$result = pg_query($connection->dbconn, $sql); 
+
+if ($result) echo "there is something in the db!";
 else "insert failed";
 
 $sql = "SELECT * FROM clients";
