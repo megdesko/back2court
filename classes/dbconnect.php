@@ -30,7 +30,7 @@ public function create($post, $table) {
 	$sql = "INSERT INTO $table  SET ";
 
 	foreach ($post as $column => $value) {
-		$sql .= $column . " = '" . pg_escape_literal($value) . "'";	
+		$sql .= $column . " = '" . pg_escape_string($value) . "'";	
 	}	
 	var_dump($sql);	
 	$result = pg_query($this->dbconn, $sql);
