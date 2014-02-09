@@ -32,10 +32,10 @@ var_dump($data);
 	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
 
-	$result = pg_query($connection->dbconn, $sql); 
+	$result = pg_query($this->dbconn, $sql); 
 
-if ($result) echo "there is something in the db!";
-else "insert failed";
+	if ($result) echo "there is something in the db!";
+	else "insert failed";
 
 	echo "about to return from create fn";
 	return ($result);
