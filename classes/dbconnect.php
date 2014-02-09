@@ -28,8 +28,7 @@ public function db_connect() {
 public function create_client($data) {
 	echo "inside create_client";
 	$sql = "INSERT INTO clients (first_name, last_name, phone) VALUES
-	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."')
-RETURNING client_id";
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."')";
 
 	$result = pg_query($this->dbconn, $sql); 
 	$the_data = pg_fetch_assoc($result);
@@ -150,10 +149,10 @@ public function delete_user($id) {
 
 public function create_demo_text($data) {
 	$sql = "INSERT INTO demo_text (demo_name, phone) VALUES
-	('".$data['demo_name']."', '".$data['phone']."') RETURNING demo_text_id";
+	('".$data['demo_name']."', '".$data['phone']."') ";
 
 	$result = pg_query($this->dbconn, $sql); 
-
+	if ($result) return bool(true);
 	return ($result);
 	
 }
