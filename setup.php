@@ -27,6 +27,7 @@ $data['last_name'] = "Desko";
 $data['phone_1'] = "650-714-4716";
 
 var_dump($data);
+
 $new_result = $connection->create($data, 'clients');
 if ($new_result) echo "there is something in the db!";
 else "insert failed";
@@ -37,7 +38,6 @@ $rows = pg_fetch_assoc($result);
 var_dump($rows);
 echo "<hr>";
 
-var_dump($result);
 
 echo "<hr>";
 echo "I am finished with my setup routine.";
