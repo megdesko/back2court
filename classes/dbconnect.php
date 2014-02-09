@@ -77,5 +77,265 @@ public function delete_client($id) {
 
 }
 
+
+
+///////////////////////////////////////////
+//appointments
+////////////////////////////////////////////
+
+/**
+ * @abstract create new record in the client table
+ * @param array $data // contains the data that we need to insert
+ *
+ */ 
+
+public function create_client($data) {
+	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+	
+}
+
+public function get_client($id) {
+	if (! is_integer($id) or !$id ) { return; }
+
+	$sql = "SELECT * FROM clients where client_id = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+}
+
+public function get_all_clients() {
+
+	$sql = "SELECT * FROM clients";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+public function update_client($data) {
+	if (! is_numeric($data['client_id']) or !$data['client_id']) {return;}
+
+	$sql = "UPDATE clients SET (first_name, last_name, phone_1) =
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')
+	WHERE client_id = '".$data['client_id']."'";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+
+}
+
+public function delete_client($id) {
+	// if we don't have an id here, abort so we don't kill the db
+	if (! is_integer($id) or !$id ) { return; }
+	
+	$sql = "DELETE FROM clients WHERE client_id  = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+/////////////////////////////////////////////
+//user
+/////////////////////////////////////////////
+
+/**
+ * @abstract create new record in the client table
+ * @param array $data // contains the data that we need to insert
+ *
+ */ 
+
+public function create_client($data) {
+	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+	
+}
+
+public function get_client($id) {
+	if (! is_integer($id) or !$id ) { return; }
+
+	$sql = "SELECT * FROM clients where client_id = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+}
+
+public function get_all_clients() {
+
+	$sql = "SELECT * FROM clients";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+public function update_client($data) {
+	if (! is_numeric($data['client_id']) or !$data['client_id']) {return;}
+
+	$sql = "UPDATE clients SET (first_name, last_name, phone_1) =
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')
+	WHERE client_id = '".$data['client_id']."'";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+
+}
+
+public function delete_client($id) {
+	// if we don't have an id here, abort so we don't kill the db
+	if (! is_integer($id) or !$id ) { return; }
+	
+	$sql = "DELETE FROM clients WHERE client_id  = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+public function get_user_clients($user_id) {
+// insert brilliant function here
+}
+
+/////////////////////////////////////////
+//jurisdictions
+/////////////////////////////////////////
+
+/**
+ * @abstract create new record in the client table
+ * @param array $data // contains the data that we need to insert
+ *
+ */ 
+
+public function create_client($data) {
+	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+	
+}
+
+public function get_client($id) {
+	if (! is_integer($id) or !$id ) { return; }
+
+	$sql = "SELECT * FROM clients where client_id = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+}
+
+public function get_all_clients() {
+
+	$sql = "SELECT * FROM clients";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+public function update_client($data) {
+	if (! is_numeric($data['client_id']) or !$data['client_id']) {return;}
+
+	$sql = "UPDATE clients SET (first_name, last_name, phone_1) =
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')
+	WHERE client_id = '".$data['client_id']."'";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+
+}
+
+public function delete_client($id) {
+	// if we don't have an id here, abort so we don't kill the db
+	if (! is_integer($id) or !$id ) { return; }
+	
+	$sql = "DELETE FROM clients WHERE client_id  = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+///////////////////////////////////////////////
+// venues
+///////////////////////////////////////////////
+
+/**
+ * @abstract create new record in the client table
+ * @param array $data // contains the data that we need to insert
+ *
+ */ 
+
+public function create_client($data) {
+	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+	
+}
+
+public function get_client($id) {
+	if (! is_integer($id) or !$id ) { return; }
+
+	$sql = "SELECT * FROM clients where client_id = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+}
+
+public function get_all_clients() {
+
+	$sql = "SELECT * FROM clients";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+public function update_client($data) {
+	if (! is_numeric($data['client_id']) or !$data['client_id']) {return;}
+
+	$sql = "UPDATE clients SET (first_name, last_name, phone_1) =
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')
+	WHERE client_id = '".$data['client_id']."'";
+
+	$result = pg_query($this->dbconn, $sql); 
+
+	return ($result);
+
+}
+
+public function delete_client($id) {
+	// if we don't have an id here, abort so we don't kill the db
+	if (! is_integer($id) or !$id ) { return; }
+	
+	$sql = "DELETE FROM clients WHERE client_id  = '$id'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+
+}
+
+
+
+
+
+
+
 }
 ?>

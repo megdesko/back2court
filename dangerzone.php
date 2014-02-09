@@ -105,6 +105,7 @@ if ($result) echo "Executed $sql<br><br>";
 
 echo "<hr>";
 $sql= "CREATE TABLE IF NOT EXISTS jurisdictions (
+	jurisdiction_id		serial,
 	jurisdiction_name	varchar(250),
 	city				varchar(100),
 	county				varchar(100),
@@ -113,7 +114,29 @@ $sql= "CREATE TABLE IF NOT EXISTS jurisdictions (
 
 $result = pg_query($connection->dbconn, $sql); 
 if ($result) echo "Executed $sql<br><br>";
+echo "<hr>";
+$sql= "CREATE TABLE IF NOT EXISTS demo_text (
+	demo_text_id		serial,
+	demo_name  			varchar(250),
+	phone				varchar(15)
+);";
 
+$result = pg_query($connection->dbconn, $sql); 
+
+if ($result) echo "Executed $sql<br><br>";
+
+echo "<hr>";
+$sql = "INSERT INTO demo_text (demo_name, phone) VALUES ('Jim Pugh',
+'7076846107');";
+if ($result) echo "Executed $sql<br><br>";
+echo "<hr>";
+$sql = "INSERT INTO demo_text (demo_name, phone) VALUES ('Meg Desko',
+'6507144716');";
+if ($result) echo "Executed $sql<br><br>";
+echo "<hr>";
+$sql = "INSERT INTO demo_text (demo_name, phone) VALUES ('David Armstrong',
+'5109152336');";
+if ($result) echo "Executed $sql<br><br>";
 echo "<hr>";
 echo "I am finished with my setup routine.";
 ?>
