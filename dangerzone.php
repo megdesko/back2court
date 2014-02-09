@@ -115,6 +115,8 @@ $sql= "CREATE TABLE IF NOT EXISTS jurisdictions (
 $result = pg_query($connection->dbconn, $sql); 
 if ($result) echo "Executed $sql<br><br>";
 echo "<hr>";
+/*
+
 $sql= "CREATE TABLE IF NOT EXISTS demo_text (
 	demo_text_id		serial,
 	demo_name  			varchar(250),
@@ -138,5 +140,6 @@ $sql = "INSERT INTO demo_text (demo_name, phone) VALUES ('David Armstrong',
 '5109152336');";
 if ($result) echo "Executed $sql<br><br>";
 echo "<hr>";
+*/
 echo "I am finished with my setup routine.";
 ?>
