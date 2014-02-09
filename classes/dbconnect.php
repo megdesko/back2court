@@ -187,7 +187,7 @@ public function update_demo_text($data) {
 
 }
 
-public function delete_client($id) {
+public function delete_demo_text($id) {
 	// if we don't have an id here, abort so we don't kill the db
 	if (! is_integer($id) or !$id ) { return; }
 	
