@@ -37,5 +37,9 @@ $sql = "SELECT * FROM clients";
 $result = pg_query($connection->dbconn, $sql);
 
 echo "<hr>";
+
+var_dump($result);
+
+echo "<hr>";
 echo "I am finished with my setup routine.";
 ?>
