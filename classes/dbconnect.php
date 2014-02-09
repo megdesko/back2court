@@ -52,9 +52,9 @@ public function get_one($id) {
 	return ($result);
 }
 
-public function get_all() {
+public function get_all_clients() {
 
-	$sql = "SELECT * FROM $this->table";
+	$sql = "SELECT * FROM clients";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);

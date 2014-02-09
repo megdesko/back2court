@@ -22,8 +22,8 @@ if ($result) echo "I have a client table<br><br>";
 else echo "client table failed";
 echo "<hr>";
 */
-$data['first_name'] = "Jim";
-$data['last_name'] = "Pugh";
+$data['first_name'] = "Awesome";
+$data['last_name'] = "Sauce";
 $data['phone_1'] = "650-714-4716";
 
 $table = "clients";
@@ -39,9 +39,11 @@ $result = pg_query($connection->dbconn, $sql);
 
 if ($result) echo "there is something in the db!";
 else "insert failed";
-*/
 $sql = "SELECT * FROM clients";
 $result = pg_query($connection->dbconn, $sql);
+*/
+$result = $connection->get_all_clients();
+
 while ($row =  pg_fetch_assoc($result)) {
 var_dump($row);
 }
