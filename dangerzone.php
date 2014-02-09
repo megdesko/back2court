@@ -87,7 +87,7 @@ echo "<hr>";
 $sql= "CREATE TABLE IF NOT EXISTS venues (
 	venue_id 			serial primary key,
 	jurisdiction_id 	integer,
-	name				varchar(250),
+	place_name			varchar(250),
 	street_address		varchar(100),
 	city				varchar(100),
 	state				char(2),
