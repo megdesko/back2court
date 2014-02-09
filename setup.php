@@ -25,6 +25,7 @@ $data['first_name'] = "Meg";
 $data['last_name'] = "Desko";
 $data['phone_1'] = "650-714-4716";
 
+$table = "clients";
 $result = $connection->create($data, $table);
 var_dump($result);
 
