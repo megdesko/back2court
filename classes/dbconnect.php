@@ -27,7 +27,7 @@ public function db_connect() {
 
 public function create_client($data) {
 	$sql = "INSERT INTO clients (user_id, first_name, last_name, phone) VALUES
-	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."', '".$data['client_id']."')";
+	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."', '".$data['user_id']."')";
 
 	$result = pg_query($this->dbconn, $sql); 
 	return ($result);
