@@ -20,7 +20,7 @@ function do_call($data, $function) {
 $all_info = json_decode($_POST);
 //$all_info = $_POST;
 if (!$_POST) {
-	$all_info['method'] = 'get_all_clients'];
+	$all_info['method'] = 'get_all_clients';
 }
 $function = $all_info['method'];
 unset($all_info['method']);
