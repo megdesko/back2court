@@ -32,7 +32,6 @@ public function create_client($data) {
 RETURNING client_id";
 
 	$result = pg_query($this->dbconn, $sql); 
-	$inserted = 
 	return ($result);
 	
 }
