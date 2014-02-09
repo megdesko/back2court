@@ -149,12 +149,6 @@ public function create_demo_text($data) {
 	('".$data['demo_name']."', '".$data['phone']."') ";
 
 	$result = pg_query($this->dbconn, $sql); 
-	if ($result) {
-		$result = $this->get_last_demo_text();
-	}
-	else {
-		$result = false;
-	}
 	return ($result);
 	
 }
