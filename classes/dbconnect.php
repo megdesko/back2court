@@ -3,7 +3,7 @@
 class dbconnect {
 
 var $dbconn;
-var $table;
+
 public function __construct() {
 	$this->db_connect();
 }
@@ -21,32 +21,24 @@ public function db_connect() {
 
 /**
  * @abstract create new record in the client table
- * @param array $post // contains the data that we need to insert
+ * @param array $data // contains the data that we need to insert
  *
  */ 
 
 public function create_client($data) {
-echo "inside create";	
-
-var_dump($data);
 	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
 
 	$result = pg_query($this->dbconn, $sql); 
 
-	if ($result) echo "there is something in the db!";
-	else "insert failed";
-
-	echo "about to return from create fn";
 	return ($result);
 	
 }
 
-public function get_one($id) {
+public function get_client($id) {
 	if (! is_integer($id) or !$id ) { return; }
 
-	$sql = "SELECT * FROM $this->table WHERE ";
-	$sql .= $this->table_id  . "_id = '$id'";
+	$sql = "SELECT * FROM clients where client_id = '$id'";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);

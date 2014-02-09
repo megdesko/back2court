@@ -42,7 +42,7 @@ else "insert failed";
 $sql = "SELECT * FROM clients";
 $result = pg_query($connection->dbconn, $sql);
 */
-$result = $connection->get_all_clients();
+$result = $connection->get_client(1);
 
 while ($row =  pg_fetch_assoc($result)) {
 var_dump($row);
