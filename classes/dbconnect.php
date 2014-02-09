@@ -194,8 +194,9 @@ public function update_demo_text($data) {
 
 public function delete_demo_text($data) {
 	// if we don't have an id here, abort so we don't kill the db
-	if (! is_integer($data['demo_text_id']) or !$data['demo_text_id'] ) { return; }
-	
+	if (!$data['demo_text_id'] ) {
+		return false;
+	}	
 	$sql = "DELETE FROM demo_text WHERE demo_text_id  =
 '".$data['demo_text_id']."'";
 	$result = pg_query($this->dbconn, $sql);
