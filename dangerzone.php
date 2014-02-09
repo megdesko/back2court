@@ -91,7 +91,7 @@ $sql= "CREATE TABLE IF NOT EXISTS venues (
 	street_address		varchar(100),
 	city				varchar(100),
 	state				char(2),
-	zip					integer(5)
+	zip					char(5)
 );";
 
 $result = pg_query($connection->dbconn, $sql); 
@@ -105,7 +105,7 @@ if ($result) echo "Executed $sql<br><br>";
 
 echo "<hr>";
 $sql= "CREATE TABLE IF NOT EXISTS jurisdictions (
-	name				varchar(250),
+	jurisdiction_name	varchar(250),
 	city				varchar(100),
 	county				varchar(100),
 	state				char(2)
