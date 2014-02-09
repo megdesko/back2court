@@ -5,7 +5,7 @@ class dbconnect {
 var $dbconn;
 
 public function __construct() {
-	$this->db_connect();
+	if (!$this->dbconn) $this->db_connect();
 }
 
 public function db_connect() {
@@ -88,7 +88,7 @@ public function delete_client($id) {
  * @param array $data // contains the data that we need to insert
  *
  */ 
-
+/*
 public function create_client($data) {
 	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
@@ -150,7 +150,7 @@ public function delete_client($id) {
  * @param array $data // contains the data that we need to insert
  *
  */ 
-
+/*
 public function create_client($data) {
 	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
@@ -216,7 +216,7 @@ public function get_user_clients($user_id) {
  * @param array $data // contains the data that we need to insert
  *
  */ 
-
+/*
 public function create_client($data) {
 	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
@@ -278,7 +278,7 @@ public function delete_client($id) {
  * @param array $data // contains the data that we need to insert
  *
  */ 
-
+/*
 public function create_client($data) {
 	$sql = "INSERT INTO clients (first_name, last_name, phone_1) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone_1']."')";
@@ -334,7 +334,7 @@ public function delete_client($id) {
 
 
 
-
+*/
 
 
 }
