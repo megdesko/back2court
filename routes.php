@@ -26,7 +26,7 @@ $function = $all_info['method'];
 unset($all_info['method']);
 $data = $all_info;
 $result = do_call($data, $function);
-
+unset($data);
 if (strpos($function, 'create') !== false && $result) {
 	$function = str_replace('create', 'get_last', $function);
 	$result = do_call(array(), $function);
@@ -42,7 +42,7 @@ if (strpos($function, 'get') !== false && $result) {
 $result = array('result' => $result, 'data'=>$data);
 
 //var_dump($result);
-//var_dump(json_encode($result));
+var_dump(json_encode($result));
 return json_encode($result);
 
 
