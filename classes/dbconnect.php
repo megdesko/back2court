@@ -149,7 +149,12 @@ public function create_demo_text($data) {
 	('".$data['demo_name']."', '".$data['phone']."') ";
 
 	$result = pg_query($this->dbconn, $sql); 
-	if ($result) return TRUE;
+	if ($result) {
+		$result = $this->get_last_demo_text();
+	}
+	else {
+		$result = false;
+	}
 	return ($result);
 	
 }
@@ -159,6 +164,13 @@ public function get_demo_text($data) {
 
 	$sql = "SELECT * FROM demo_text where demo_text_id =
 '".$data['demo_text_id']."'";
+	$result = pg_query($this->dbconn, $sql);
+
+	return ($result);
+}
+public function get_last_demo_text() {
+
+	$sql = "SELECT * FROM demo_text ORDER BY demo_text_id DESC LIMIT 1";
 	$result = pg_query($this->dbconn, $sql);
 
 	return ($result);
