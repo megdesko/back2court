@@ -5,13 +5,12 @@ include_once("./classes/dbconnect.php");
 
 echo "lalalala no connection yet";
 $connection = new dbconnect();
-/*
 if ($connection->dbconn) echo "I have a connection!";
 else echo "I am sad";
 echo "<br><br>";
 
 $sql= "CREATE TABLE IF NOT EXISTS clients (
-	client_id   integer,
+	client_id   serial primary key,
 	first_name  varchar(50),
 	last_name   varchar(100),
 	phone_1     varchar(15)
@@ -21,7 +20,6 @@ $result = pg_query($connection->dbconn, $sql);
 
 if ($result) echo "I have a client table<br><br>";
 else echo "client table failed";
-*/
 echo "<hr>";
 
 $data['first_name'] = "Meg";

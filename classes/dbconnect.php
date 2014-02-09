@@ -39,7 +39,6 @@ public function create($post, $table) {
 
 	$the_sql = $sql . $sql2 . ") VALUES ";
 	$the_sql .= $sql3 . ")";
-	$the_sql .= " RETURNING ". $table."_id";
 	var_dump($the_sql);	
 	$result = pg_query($this->dbconn, $sql);
 
