@@ -399,7 +399,6 @@ public function delete_jurisdiction($id) {
  * @param array $data // contains the data that we need to insert
  *
  */ 
-/*
 public function create_venue($data) {
 	$sql = "INSERT INTO venues (first_name, last_name, phone) VALUES
 	('".$data['first_name']."', '".$data['last_name']."', '".$data['phone']."')";
