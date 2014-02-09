@@ -14,8 +14,8 @@ function do_call($data, $function) {
 }
 
 
-$all_info = json_decode($_POST);
-//$all_info = $_POST;
+//$all_info = json_decode($_POST);
+$all_info = $_POST;
 if (!$_POST) {
 	$all_info['method'] = 'get_all_clients';
 }
