@@ -11,9 +11,7 @@
 <h1>SMS Reminder Demonstration</h1>
 
 <table>
-  <tr><td>Jim Pugh</td><td class="phone phone1">(707) 684-6107</td><td><button onclick="return removeNum(1,this)">Remove</td></tr>
-  <tr><td>Meg Desko</td><td class="phone phone2">(650) 714-4716</td><td><button onclick="return removeNum(2,this)">Remove</td></tr>
-  <tr>
+  <tr class="input-row">
     <td><input type="text" name="demo_name" placeholder="Name" value="" /></td>
     <td><input type="text" name="demo_phone" placeholder="Phone" value="" /></td>
     <td><button onclick="return addNum(this)">Add</td>
@@ -33,7 +31,14 @@ function getNums() {
     type: 'POST',
     data: { method: 'get_all_demo_texts' }
   }).success(function(data) {
-    // Handle list
+    var nums = $.parseJSON(data).data;
+    for (var i = 0; i < nums.length; i++) {
+      var row = $('<tr></tr');
+      row.append($('<td></td>').text(nums[i].demo_name));
+      row.append($('<td></td>').addClass('phone phone'+nums[i].demo_text_id).text(nums[i].phone));
+      row.append($('<td></td>').append($('<button></button>').attr('onclick','return removeNum('+nums[i].demo_text_id+',this)').text('Remove')));
+      $('.input-row').before(row);
+    }
   });
 }
 // Remove a number
@@ -60,7 +65,7 @@ function addNum(btn) {
     type: 'POST',
     data: { method: 'create_demo_text', demo_name: name, phone: phone }
   }).success(function(data) {
-    var id = data['id'];
+    var id = $.parseJSON(data).data[0].demo_text_id;
     row.append($('<td></td>').text(name));
     row.append($('<td></td>').addClass('phone phone'+id).text(phone));
     row.append($('<td></td>').append($('<button></button>').attr('onclick','return removeNum('+id+',this)').text('Remove')));
@@ -83,8 +88,9 @@ function sendMessage() {
   }).fail(function() {
     alert('Failure sending SMS messages');
   });
-
 }
+
+getNums();
 </script>
 
 </body>
