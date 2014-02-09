@@ -20,13 +20,13 @@ function do_call($data, $function) {
 
 $all_info = $_POST;
 
-print_r($_POST);
+//print_r($_POST);
 $function = $all_info['method'];
 unset($all_info['method']);
 $result = do_call($all_info, $function);
 
-echo __line__ . __file__;
-echo $result;
+//echo __line__ . __file__;
+//echo $result;
 if (strpos($function, 'create') !== false && $result) {
 	$function = str_replace('create', 'get_last', $function);
 	$result = do_call(array(), $function);
