@@ -18,8 +18,8 @@ function do_call($data, $function) {
 //$_POST['phone'] = '5551212';
 //$all_info = json_decode($_POST);
 
-$all_info = $_POST;
-if (!$_POST) {
+$all_info = $_REQUEST;
+if (!$_REQUEST) {
 	$all_info['method'] = 'get_all_demo_texts';
 }
 $function = $all_info['method'];
