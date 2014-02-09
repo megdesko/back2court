@@ -32,6 +32,8 @@ public function create_client($data) {
 RETURNING client_id";
 
 	$result = pg_query($this->dbconn, $sql); 
+	$the_data = pg_fetch_assoc($result);
+	var_dump($the_data);
 	return ($result);
 	
 }
