@@ -7,7 +7,7 @@
   font-style: inherit;
   font-size: 12px;
   line-height: 1;
-  font-family: Helvetica;
+  font-family: Arial;
   text-align: left;
   vertical-align: baseline;
   position: relative;
@@ -50,6 +50,7 @@ img {
 	color: #FFFFFF;
 	margin: 0 0 0 10px;
 	vertical-align: top;
+	font-family: Arial;
 }
 
 #main {
@@ -62,6 +63,7 @@ img {
 	float: left;
 	font-size: 28px;
 	margin: 0 0 15px;
+	font-family: Arial;
 }
 
 #main a.create-new {
@@ -77,12 +79,33 @@ img {
 	padding: 5px 20px 5px 0;
 	font-size: 18px;
 	min-width: 100px;
+	font-family: Arial;
 }
 #main table.appointment-list td.table-button {
 	text-align: right;
 }
 #main table.appointment-list button {
 	font-size: 18px;
+}
+
+#main #schedule_form {
+	clear: both;
+	font-size: 18px;
+	font-weight: bold;
+}
+#main #schedule_form label {
+	display: inline-block;
+	width: 180px;
+	font-family: Arial;
+}
+#main #schedule_form input {
+	font-size: 18px;
+	width: 300px;
+	margin: 0 0 0 4px;
+	font-family: Arial;
+}
+#main #schedule_form input[type="submit"] {
+	width: 180px;
 }
 
 #footer {
