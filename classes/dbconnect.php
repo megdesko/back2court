@@ -226,7 +226,7 @@ public function delete_demo_text($data) {
 public function create_appointment($data) {
 	$sql = "INSERT INTO appointments (client_id, appointment_date,
 appointment_time, location) VALUES
-	('".$data['client_id']."', '".$data['appointment_date']."',
+	(".$data['client_id'].", '".$data['appointment_date']."',
 '".$data['appointment_time']."','".$data['location']."')";
 
 	$result = pg_query($this->dbconn, $sql); 
