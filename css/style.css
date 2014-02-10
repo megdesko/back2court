@@ -1,5 +1,5 @@
 /* css reset */
-.sprogc-content {
+html, body {
   margin: 0;
   padding: 0;
   border: 0;
