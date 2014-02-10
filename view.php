@@ -47,17 +47,44 @@
           <td>Jim Pugh</td>
           <td>(707) 684-6107</td>
           <td>123 Main Street</td>
-          <td><button onclick="return editApt(1)">Edit</button></td>
-          <td><button onclick="return removeApt(1,this)">Cancel</button></td>
+          <td class="table-button"><button onclick="return editApt(1)">Edit</button></td>
+          <td class="table-button"><button onclick="return removeApt(1,this)">Cancel</button></td>
         </tr>
         <tr>
           <td>March 15</td>
-          <td>2:30 PM</td>
-          <td>Jim Pugh</td>
-          <td>(707) 684-6107</td>
+          <td>4:00 PM</td>
+          <td>Mary Catherine Heinzenroeder</td>
+          <td>(222) 333-4444</td>
+          <td>765 Elm Ave</td>
+          <td class="table-button"><button onclick="return editApt(2)">Edit</button></td>
+          <td class="table-button"><button onclick="return removeApt(2,this)">Cancel</button></td>
+        </tr>
+        <tr>
+          <td>March 16</td>
+          <td>11:00 AM</td>
+          <td>Sarah Turner</td>
+          <td>(432) 654-7656</td>
           <td>123 Main Street</td>
-          <td><button onclick="return editApt(2)">Edit</button></td>
-          <td><button onclick="return removeApt(2,this)">Cancel</button></td>
+          <td class="table-button"><button onclick="return editApt(3)">Edit</button></td>
+          <td class="table-button"><button onclick="return removeApt(3,this)">Cancel</button></td>
+        </tr>
+        <tr>
+          <td>March 18</td>
+          <td>9:00 AM</td>
+          <td>John Peters</td>
+          <td>(299) 377-4455</td>
+          <td>123 Main Street</td>
+          <td class="table-button"><button onclick="return editApt(3)">Edit</button></td>
+          <td class="table-button"><button onclick="return removeApt(3,this)">Cancel</button></td>
+        </tr>
+        <tr>
+          <td>March 19</td>
+          <td>3:00 PM</td>
+          <td>Charles Zimmer</td>
+          <td>(752) 375-2938</td>
+          <td>765 Elm Ave</td>
+          <td class="table-button"><button onclick="return editApt(4)">Edit</button></td>
+          <td class="table-button"><button onclick="return removeApt(4,this)">Cancel</button></td>
         </tr>
       </table>
     

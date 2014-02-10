@@ -76,6 +76,10 @@ img {
 	text-align: left;
 	padding: 5px 20px 5px 0;
 	font-size: 18px;
+	min-width: 100px;
+}
+#main table.appointment-list td.table-button {
+	text-align: right;
 }
 #main table.appointment-list button {
 	font-size: 18px;
